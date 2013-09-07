@@ -36,11 +36,12 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.0.1'
 end
-group :test do
-  gem 'rspec', '2.0.1'
-  gem 'webrat', '0.7.1'
+group :test, :development do
+  gem "rspec-rails", "~> 2.4"
+  gem "autotest"
+  gem "webrat"
+  gem "spork-rails"
 end
 group :production do
   gem 'pg' #, '0.15.1'
