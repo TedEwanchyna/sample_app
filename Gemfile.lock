@@ -106,10 +106,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    spork (1.0.0rc3)
-    spork-rails (3.2.1)
-      rails (>= 3.0.0, < 3.3.0)
-      spork (>= 1.0rc0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -142,7 +138,6 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (~> 2.4)
   sass-rails (~> 3.2.3)
-  spork-rails
   sqlite3 (= 1.3.5)
   uglifier (>= 1.0.3)
   webrat

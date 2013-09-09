@@ -41,7 +41,7 @@ group :test, :development do
   gem "rspec-rails", "~> 2.4"
   gem "autotest"
   gem "webrat"
-  gem "spork-rails"
+#  gem "spork-rails"
 end
 group :production do
   gem 'pg' #, '0.15.1'
