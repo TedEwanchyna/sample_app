@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'gravatar_image_tag', '0.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -34,6 +35,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :test do
+  gem 'factory_girl', '1.3.3'
+  #gem 'factory_girl'#, '1.0'
+end
 group :development do
   gem 'sqlite3', '1.3.5'
   gem 'annotate', ">=2.5.0"
