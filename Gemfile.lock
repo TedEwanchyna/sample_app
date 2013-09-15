@@ -46,6 +46,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.1)
     factory_girl (1.3.3)
+    faker (0.3.1)
     gravatar_image_tag (0.1.0)
     hike (1.2.3)
     i18n (0.6.1)
@@ -129,6 +130,7 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -138,6 +140,7 @@ DEPENDENCIES
   autotest
   coffee-rails (~> 3.2.1)
   factory_girl (= 1.3.3)
+  faker (= 0.3.1)
   gravatar_image_tag (= 0.1.0)
   jquery-rails
   pg
@@ -148,3 +151,4 @@ DEPENDENCIES
   sqlite3 (= 1.3.5)
   uglifier (>= 1.0.3)
   webrat
+  will_paginate
