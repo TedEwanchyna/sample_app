@@ -54,6 +54,11 @@ describe "LayoutLinks" do
       @user = Factory(:user)
       integration_sign_in(@user)
     end
+    # not an admin user
+    it "should not display the delete link" do
+      visit users_path
+      response.should_not have_selector("a", :content => "delete")
+    end
     it "should have a signout link" do
       visit root_path
       response.should have_selector("a", :href => signout_path,
@@ -63,6 +68,19 @@ describe "LayoutLinks" do
       visit root_path
       response.should have_selector("a", :href => user_path(@user),
                                          :content => "Profile")
+    end
+  end
+
+  describe "as an admin user" do
+    before(:each) do
+      @user = Factory(:user)
+      @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+      integration_sign_in(@admin)
+    end
+
+    it "should display the delete link" do
+      visit users_path
+      response.should have_selector("a", :content => "delete")
     end
   end
 

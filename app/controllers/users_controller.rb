@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
   before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user, :only => :destroy
+  before_filter :admin_user, :only => [:destroy]
+  before_filter :not_when_signed_in, :only => [:new, :create]
 
 
   def index
@@ -47,9 +48,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_path
+    if  current_user[:email] =~ /admin/ && 
+        current_user[:admin] && 
+        current_user[:id] == params[:id].to_i
+      flash[:success] = "do not do that"
+      redirect_to(root_path)
+      #redirect_to(root_path, notice: "do not do that")
+    else
+      User.find(params[:id]).destroy
+      flash[:success] = "User destroyed."
+      redirect_to users_path
+    end
   end
 
   private
@@ -64,6 +73,13 @@ class UsersController < ApplicationController
 
     def admin_user
       redirect_to(root_path) unless current_user.admin?
+    end
+
+    def not_when_signed_in
+      # disallow a signed in user INCLUDING admin!
+      #deny_access if signed_in? 
+      # it works but deny_access also sets session via store_location...
+      redirect_to(root_path, notice: "You're already signed in ...") if signed_in?
     end
 
 end
